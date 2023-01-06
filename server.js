@@ -10,7 +10,6 @@ const path = require('path')
 // [REQUIRE] Personal // Other // API // Pages //
 const api_instagram = require('./s-api/instagram')
 const config = require('./s-config')
-const Functionality = require('./s-middleware/Functionality')
 
 const p_gallery = require('./s-routes/pages/gallery')
 
