@@ -10,8 +10,8 @@
 							class="w-100"
 							style="max-width: 120px;"
 						>
-						<hr>
 					</RouterLink>
+					<hr class="text-light">
 				</BCol>
 
 				<BCol cols="12" sm="4" class="text-center" data-aos="fade-up">
@@ -58,7 +58,7 @@
 							</RouterLink>
 						</li>
 					</ul>
-					<hr>
+					<hr class="text-light">
 				</BCol>
 
 				<BCol cols="12" sm="4" class="text-center" data-aos="fade-up">
