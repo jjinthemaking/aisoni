@@ -11,7 +11,7 @@
 							style="max-width: 120px;"
 						>
 					</RouterLink>
-					<hr class="text-light">
+					<br><br><br>
 				</BCol>
 
 				<BCol cols="12" sm="4" class="text-center" data-aos="fade-up">
@@ -40,7 +40,6 @@
 							{{ hoo.hours }}
 						</li>
 					</ul>
-					<hr>
 				</BCol>
 
 				<BCol cols="12" sm="4" class="text-center" data-aos="fade-up">
@@ -52,13 +51,12 @@
 
 					<ul class="list-unstyled text-small">
 						<li v-for="(link, i) in pageLinks" :key="i">
-							<RouterLink to="/services" class="text-white">
+							<RouterLink :to="link.path" class="text-white">
 								<span v-if="link.text">{{ link.text }}</span>
 								<span v-else v-html="link.navIcon"></span>
 							</RouterLink>
 						</li>
 					</ul>
-					<hr class="text-light">
 				</BCol>
 
 				<BCol cols="12" sm="4" class="text-center" data-aos="fade-up">
