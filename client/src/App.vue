@@ -6,20 +6,23 @@
 		<!-- RouterView -->
 		<RouterView />
 
-		<!-- Footer -->
-		<Footer />
+		<!-- FooterSection -->
+		<FooterSection />
 	</div>
 </template>
 
 <script>
-	// [IMPORT] Personal //
-	import NavBar from "@/components/nav/NavBar"
-	import Footer from "@/components/nav/Footer"
+	// [IMPORT]
+	import aos from "aos";
+	import "aos/dist/aos.css";
+
+	import NavBar from "./components/nav/NavBar";
+	import FooterSection from "./components/nav/FooterSection";
 
 	export default {
 		components: {
 			NavBar,
-			Footer,
+			FooterSection,
 		},
 
 		methods: {
@@ -27,6 +30,8 @@
 				this.$store.state.window.innerWidth = window.innerWidth
 			},
 		},
+
+		created() { aos.init() },
 
 		mounted() {
 			this.$nextTick(() => {

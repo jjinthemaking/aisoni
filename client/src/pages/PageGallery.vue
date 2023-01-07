@@ -42,6 +42,7 @@
 						v-for="(img, i) in pageData.images"
 						:key="i"
 						cols="6" md="4"
+						data-aos="fade-up"
 					>
 						<div class="img-holder mb-4">
 							<img

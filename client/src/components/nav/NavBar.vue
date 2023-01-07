@@ -2,14 +2,14 @@
 	<header>
 		<!-- Desktop Spacer -->
 		<div
-			v-if="!$store.state.isHomePage"
+			v-if="!this.$store.state.isHomePage"
 			class="d-none d-lg-block"
 			style="height: 64px;"
 		/>
 
 		<!-- Mobile Spacer -->
 		<div
-			v-if="!$store.state.isHomePage"
+			v-if="!this.$store.state.isHomePage"
 			class="d-block d-lg-none"
 			style="height: 69.23px;"
 		/>
@@ -17,21 +17,21 @@
 		<div class="w-100 fixed-top">
 			<!-- Desktop Menu -->
 			<div
-				class="d-none d-lg-flex w-100 transition"
-				:class="[navClass, { 'bg-dark shadow': !$store.state.isHomePage }]"
+				class="py-4 d-none d-lg-flex w-100 transition"
+				:class="[navClass, { 'bg-dark shadow': !this.$store.state.isHomePage }]"
 			>
 				<div class="mx-auto">
 					<RouterLink
 						v-for="(l, i) in pageLinks"
 						:key="i"
 						:to="l.path"
+						style="text-decoration: none !important;"
 					>
 						<span
 							variant="none"
 							class="
 								float-left
 								mx-3 mx-lg-4
-								py-4
 								font-weight
 								text-white
 								text-spread-sm
@@ -49,7 +49,7 @@
 			<!-- Mobile Menu -->
 			<div
 				class="d-flex d-lg-none m-0 p-0 text-right shadow bg-shade-darker transition"
-				:class="[navClass, { 'bg-dark': !$store.state.isHomePage }]"
+				:class="[navClass, { 'bg-dark': !this.$store.state.isHomePage }]"
 			>
 				<div class="text-center w-100 px-3 py-3" style="max-width: 130px;">
 					<RouterLink to="/">
@@ -79,11 +79,11 @@
 	import { MenuIcon } from 'vue-feather-icons'
 
 	// [IMPORT] Personal //
-	import SideMenu from '@/components/nav/SideMenu'
-	import companyInfo from '@/defaults/companyInfo'
+	import SideMenu from '../../components/nav/SideMenu'
+	import companyInfo from '../../defaults/companyInfo'
 	import pageLinks from '../../defaults/pageLinks'
-	import buttons from '@/defaults/pageLinks'
-	import router from '@/router'
+	import buttons from '../../defaults/pageLinks'
+	import router from '../../router'
 
 	export default {
 		components: {
@@ -138,9 +138,7 @@
 
 	.menu-link {
 		position: relative;
-		text-decoration: none;
 		transition: .2s;
-		text-decoration: none !important;
 
 		&::before {
 			@extend .bg-info;

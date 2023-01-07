@@ -1,22 +1,22 @@
 <template>
 	<div class="outerWrapper">
 		<div class="bg-shade-darkerer">
-			<Hero />
+			<HeroSection />
 		</div>
 	</div>
 </template>
 
 <script>
 	// [IMPORT] Personal //
-	import Hero from '@/components/home/Hero'
+	import HeroSection from '@/components/home/HeroSection'
 	import pageData from '@/defaults/pages'
 	import router from '@/router'
 
 	export default {
-		name: 'Home',
+		name: 'PageIndex',
 
 		components: {
-			Hero,
+			HeroSection,
 		},
 
 		data() {

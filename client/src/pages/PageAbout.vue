@@ -5,18 +5,18 @@
 		<hr class="bg-shine mb-5" style="max-width: 800px;">
 		
 		<div class="mx-auto" style="max-width: 800px;">
-			<About />
+			<AboutSection />
 		</div>
 	</BContainer>
 </template>
 
 <script>
-	import About from '@/components/About'
+	import AboutSection from '../components/AboutSection'
 	import LogoHeader from '../components/LogoHeader'
 	
 	export default {
 		components: {
-			About,
+			AboutSection,
 			LogoHeader,
 		},
 	}

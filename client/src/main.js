@@ -1,11 +1,10 @@
 // [IMPORT] //
-import aos from 'aos'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import Viewer from 'v-viewer'
 import Vue from 'vue'
-import VueLazyload from 'vue-lazyload'
+import { createStore } from 'vuex';
+//import VueLazyload from 'vue-lazyload'
 import VueRellax from 'vue-rellax'
-import 'aos/dist/aos.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'tiny-slider/src/tiny-slider.scss'
 import 'viewerjs/dist/viewer.css'
@@ -13,31 +12,46 @@ import 'viewerjs/dist/viewer.css'
 
 // [IMPORT] Personal //
 import App from './App.vue'
-import router from '@/router'
-import store from '@/store'
+import router from './router'
 import './assets/styles/bootstrap-override.scss'
 import './assets/styles/style.scss'
 
 
-Vue.use(BootstrapVue)
-Vue.use(IconsPlugin)
-Vue.use(Viewer)
-Vue.use(VueLazyload, {
-	preLoad: 1.3,
-	error: require('./assets/media/err.png'),
-	loading: require('./assets/media/loading.gif'),
-	attempt: 1
+const store = createStore({
+	state() {
+		return {
+			node_env: localStorage.node_env == 'development' ? 'development' : 'production',
+	
+			showIntro: true,
+			loading: false,
+			
+			showMenu: false,
+	
+			userLogged: false,
+			user_decoded: {},
+	
+			adminLogged: false,
+			admin_decoded: {},
+	
+			isHomePage: false,
+	
+			window: {
+				innerWidth: window.innerWidth
+			},
+		}
+	}
 })
-Vue.use(VueRellax)
-
 
 
 Vue.config.productionTip = false
 
 
-new Vue({
-  router,
-  store,
-  created() { aos.init() },
-  render: h => h(App)
-}).$mount('#app')
+Vue.createApp(App)
+	.use(store)
+	.use(BootstrapVue)
+	.use(IconsPlugin)
+	.use(Viewer)
+	.use(router)
+	.use(VueRellax)
+	.mount('#app')
+;

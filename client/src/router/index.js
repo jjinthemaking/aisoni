@@ -1,25 +1,23 @@
 // [IMPORT] //
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 
 // [IMPORT] Personal (Ordered by path) //
-import companyInfo from '@/defaults/companyInfo'
-import index from '@/pages'
-import about from '@/pages/about'
-import contact from '@/pages/contact'
-import gallery from '@/pages/gallery'
-import privacypolicy from '../pages/privacy-policy'
-import services from '@/pages/services'
-import notFound from '@/pages/404'
+import companyInfo from '../defaults/companyInfo.js'
+import index from '../pages/PageIndex.vue'
+import about from '../pages/PageAbout.vue'
+import contact from '../pages/PageContact.vue'
+import gallery from '../pages/PageGallery.vue'
+import privacypolicy from '../pages/PagePrivacyPolicy.vue'
+import services from '../pages/PageServices.vue'
+import PageNotFound from '../pages/PageNotFound.vue'
 
 
-Vue.use(VueRouter)
+const router = createRouter({
+	history: createWebHistory(),
 
-
-const router = new VueRouter({
-	mode: 'history',
 	base: process.env.BASE_URL,
+
 	routes: [
 		{
 			path: '/',
@@ -83,7 +81,7 @@ const router = new VueRouter({
 		{
 			path: '/**',
 			name: 'not_found',
-			component: notFound,
+			component: PageNotFound,
 			meta: {
 				title: 'Not Found'
 			},
@@ -94,10 +92,12 @@ const router = new VueRouter({
 	scrollBehavior () { return { x: 0, y: 0 } }
 })
 
+
 // [VUE-ROUTER-SET-TITLE] //
 router.beforeEach((to, from, next) => {
 	document.title = to.meta.title + ' — ' + companyInfo.companyShortName
 	next()
 })
+
 
 export default router
