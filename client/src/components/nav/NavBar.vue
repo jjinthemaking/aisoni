@@ -63,7 +63,8 @@
 				<!-- [HIDDEN] Menu Button -->
 				<BButton
 					variant="none"
-					class="ml-auto px-3 text-light"
+					class="px-3 text-light"
+					style="margin-left: auto;"
 					@click="toggle()"
 				><MenuIcon size="3x" /></BButton>
 			</div>
