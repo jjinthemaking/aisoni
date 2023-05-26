@@ -16,8 +16,8 @@ module.exports = {
 
 	hoursOfOperation: [],
 
-	email: 'tonio64@mac.com',
-	emailLink: 'mailto:tonio64@mac.com',
+	email: 'tonino64@mac.com',
+	emailLink: 'mailto:tonino64@mac.com',
 
 	contacts: [
 		{
